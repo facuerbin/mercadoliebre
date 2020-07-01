@@ -3,12 +3,15 @@ const express = require ("express");
 const app = express();
 const port = 3000;
 
+//Static files to be used
+app.use(express.static('public'));
+
 app.listen(port, () => {
     console.log("Server listening on port ", port);
 });
 
 app.get("/", (req, res) => {
-    res.send("Hello World!");
+    res.sendfile("public/index.html")
 });
 
 app.get("/productos", (req, res) => {
